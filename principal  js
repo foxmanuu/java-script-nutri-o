@@ -1,0 +1,4 @@
+var pacientes = document.querySelector(".titulo");
+			pacientes.textContent = "Meus Pacientes";
+			var logo = document.querySelector(".titulo");
+			logo.textContent = "Svt nutricion";

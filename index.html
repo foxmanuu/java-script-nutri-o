@@ -4,19 +4,19 @@
 		<meta charset="UTF-8">
 		<title>Aparecida Nutrição</title>
 		<link rel="icon" href="favicon.ico" type="image/x-icon">
-		<link rel="stylesheet" type="text/css" href="css/reset.css">
-		<link rel="stylesheet" type="text/css" href="css/index.css">
+		<link rel="stylesheet" type="text/css" href="reset.css">
+		<link rel="stylesheet" type="text/css" href="index.css">
 		
 	</head>
 	<body>
 		<header>
 			<div class="container">
-				<h1>Aparecida Nutrição</h1>
+				<h1 class="titulo">Aparecida Nutrição</h1>
 			</div>
 		</header>
 		<main>
 			<section class="container">
-				<h2>Meus Clientes</h2>
+				<h2 class="titulo">Meus Clientes</h2>
 				<table>
 					<thead>
 						<tr>
@@ -28,7 +28,7 @@
 						</tr>
 					</thead>
 					<tbody id="tabela-pacientes">
-						<tr class="paciente" >
+						<tr class="paciente" id="primeiro_paciente">
 							<td class="info-nome">Paulo</td>
 							<td class="info-peso">100</td>
 							<td class="info-altura">2.00</td>
@@ -71,12 +71,6 @@
 
 			</section>
 		</main>
-		<script>
-			var pacientes = document.querySelector("h2");
-			pacientes.textContent = "Meus Pacientes";
-			var logo = document.querySelector("h1");
-			logo.textContent = "Svt nutricion";
-
-		</script>
+		<script src="js/principal.js"> </script> 
 	</body>
 </html>
