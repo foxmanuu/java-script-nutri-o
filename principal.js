@@ -35,10 +35,20 @@ var subtitulo = document.querySelector(".subtitulo");
     if(peso <= 0 || peso >= 1000){
         var pesoValido = false;
         tdImc.textContent = "Peso Inválido!";
+        paciente.classList.add("campo-invalido");
         paciente.style.backgroundColor = "red";
     }
     if(altura <= 0 || altura >= 3.00){
         var alturaValida = false;
         tdImc.textContent = "Altura Inválida";
+        paciente.classList.add("campo-invalido");
     }
-	}
+    }
+    //QUANDO CLICAR NO TITULO, APAREÇA UMA MENSAGEM
+    subtitulo.addEventListener('click', mostraMensagem);
+
+    function mostraMensagem(){
+        alert("este elemento foi clicado");
+    }
+
+
