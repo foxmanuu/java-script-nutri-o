@@ -11,16 +11,13 @@ var subtitulo = document.querySelector(".subtitulo");
     //seleciona o conteúdo peso da tag
     var tdPeso = paciente.querySelector(".info-peso");
     var peso = tdPeso.textContent;
-	console.log(peso);
 
     // seleciona o conteúdo altura da tag
     var tdAltura = paciente.querySelector(".info-altura");
     var altura = tdAltura.textContent;
-	console.log(altura);
 
     //calcula o imc
     var imc = peso / (altura * altura);
-	console.log(imc);
 
     //variáveis com valor true
     var pesoValido = true;
@@ -51,4 +48,38 @@ var subtitulo = document.querySelector(".subtitulo");
         alert("este elemento foi clicado");
     }
 
+    //acessar botão
+    var boataoAdicionar = document.querySelector("#adicionar-paciente")
+    //executa os codigos ao clicar no botão
+    boataoAdicionar.addEventListener('click', function(event){
+         event.preventDefault();
+    //acessa o formulario
+var formulario = document.querySelector("#form-adiciona");
 
+//captura os valores digitados
+var nome = formulario.nome.value;
+var peso = formulario.peso.value; 
+var altura = formulario.altura.value;
+var gordura = formulario.gordura.value;
+
+//criar a tag, <tr>
+var pacienteTr = document.createElement("tr");
+
+// criar a tag, <td>
+var nomeTd = document.createElement("td");
+var pesoTd = document.createElement("td");
+var alturaTd = document.createElement("td");
+var gorduraTd = document.createElement("td");
+var imcTd = document.createElement("td");
+
+//adicionar os valores as tags criadas
+nomeTd.textContent = nome;
+pesoTd.textContent = peso;
+alturaTd.textContent = altura;
+gorduraTd.textContent = gordura;
+imcTd.textContent = imc;
+
+
+});
+
+    
