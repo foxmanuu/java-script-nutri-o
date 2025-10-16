@@ -13,12 +13,31 @@ var boataoAdicionar = document.querySelector("#adicionar-paciente")
     //acessa o formulario
 var formulario = document.querySelector("#form-adiciona");
 
-//captura os valores digitados
-var nome = formulario.nome.value;
-var peso = formulario.peso.value; 
-var altura = formulario.altura.value;
-var gordura = formulario.gordura.value;
+var paciente = buscarValoresFormularios(formulario);
 
+var pacienteTr = criarTr(paciente);
+//variavel para acessar o tdBody r criar a tabela
+var tabela = document.querySelector("#tabela-pacientes");
+tabela.appendChild(pacienteTr);
+
+
+});
+
+function buscarValoresFormularios(formulario){
+//captura os valores digitados
+var paciente = {
+    nome: formulario.nome.value,
+    peso: formulario.peso.value,
+    altura: formulario.altura.value,
+    gordura:formulario.gordura.value,
+    imc: calcularImc(formulario.peso.value, formulario.altura.value)
+}
+
+return paciente; 
+
+}
+
+function criarTr(paciente){
 //criar a tag, <tr>
 var pacienteTr = document.createElement("tr");
 
@@ -29,12 +48,13 @@ var alturaTd = document.createElement("td");
 var gorduraTd = document.createElement("td");
 var imcTd = document.createElement("td");
 
+
 //adicionar os valores as tags criadas
-nomeTd.textContent = nome;
-pesoTd.textContent = peso;
-alturaTd.textContent = altura;
-gorduraTd.textContent = gordura;
-imcTd.textContent = calcularImc(peso,altura);
+nomeTd.textContent = paciente.nome;
+pesoTd.textContent = paciente.peso;
+alturaTd.textContent = paciente.altura;
+gorduraTd.textContent = paciente.gordura;
+imcTd.textContent = paciente.imc;
 
 //adicionar as tags na tela do usuário
 pacienteTr.appendChild(nomeTd);
@@ -43,13 +63,6 @@ pacienteTr.appendChild(alturaTd);
 pacienteTr.appendChild(gorduraTd);
 pacienteTr.appendChild(imcTd);
 
-var tabela = document.querySelector("#tabela-pacientes")
-tabela.appendChild(pacienteTr);
+return pacienteTr;
 
-
-
-
-
-
-
-});
+}
