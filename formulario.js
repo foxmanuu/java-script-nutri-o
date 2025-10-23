@@ -20,6 +20,8 @@ var pacienteTr = criarTr(paciente);
 var tabela = document.querySelector("#tabela-pacientes");
 tabela.appendChild(pacienteTr);
 
+formulario.reset();
+
 
 });
 
@@ -40,13 +42,14 @@ return paciente;
 function criarTr(paciente){
 //criar a tag, <tr>
 var pacienteTr = document.createElement("tr");
+pacienteTr.classList.add("paciente");
 
 // criar a tag, <td>
-var nomeTd = document.createElement("td");
-var pesoTd = document.createElement("td");
-var alturaTd = document.createElement("td");
-var gorduraTd = document.createElement("td");
-var imcTd = document.createElement("td");
+var nomeTd  = criarTd(paciente.nome, "info-name");
+var pesoTd = criarTd(paciente.peso, "info-peso");
+var alturaTd = criarTd(paciente.altura, "info-altura");
+var gorduraTd = criarTd(paciente.gordura, "info-gordura");
+var imcTd = criarTd(paciente.imc, "info-imc");
 
 
 //adicionar os valores as tags criadas
@@ -65,4 +68,14 @@ pacienteTr.appendChild(imcTd);
 
 return pacienteTr;
 
+}
+
+function criarTd(dado, classe){
+ const td = document.createElement("td");
+
+
+  td.textContent = dado;
+  td.classList.add(classe);
+
+  return td; 
 }
